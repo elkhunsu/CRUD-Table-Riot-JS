@@ -1,7 +1,7 @@
 {
   "name": "TestIvoSight",
   "version": "1.0.0",
-  "description": "riot.js Hello Word sample with npm and es6",
+  "description": "riot.js datatable test",
   "homepage": "",
   "scripts": {
     "compile": "riot --type es6 app dist",
@@ -23,5 +23,7 @@
     "babel-plugin-external-helpers-2": "^6.3.13",
     "browser-sync": "^2.18.2",
     "parallelshell": "^2.0.0"
-  }
+  },
+  "main": "index.html",
+  "repository": "https://github.com/elkhunsu/DataTable-With-Riot-JS.git"
 }
