@@ -1,0 +1,41 @@
+<!--<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  <script src="../dist/script_table.js"></script>
+  <script src="../node_modules/riot/riot+compiler.js"></script>
+</head>
+  <body>
+    <test>
+    </test>
+
+<script src="test.tag" type="riot/tag"></script>
+<script>riot.mount('test')</script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <title>Hello Riot.</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <!-- place the custom tag anywhere inside the body -->
+    <sample></sample>
+    <table-tag></table-tag>
+    <!-- include the tag -->
+    <!-- <script type="riot/tag" src="test.tag"></script> -->
+    <script type="riot/tag" src="table-tag.tag"></script>
+    <!-- include riot.js -->
+    <script src="../node_modules/riot/riot+compiler.js"></script>
+    <!-- mount the tag -->
+    <script>riot.mount('sample')</script>
+    <script>riot.mount('table-tag')</script>
+  </body>
+</html>

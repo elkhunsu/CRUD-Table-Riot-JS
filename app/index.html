@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Hello Riot.</title>
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <!-- place the custom tag anywhere inside the body -->
+    <sample></sample>
+    <table-tag></table-tag>
+    <!-- include the tag -->
+    <script src="../dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script type="riot/tag" src="test.tag"></script> -->
+    <script type="riot/tag" src="table-tag.tag"></script>
+    <!-- include riot.js -->
+    <script src="../node_modules/riot/riot+compiler.js"></script>
+    <!-- <script src="/dist/script_table.js"></script> -->
+    <!-- mount the tag -->
+    <script>riot.mount('*')</script>
+  </body>
+</html>

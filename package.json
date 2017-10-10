@@ -1,0 +1,27 @@
+{
+  "name": "TestIvoSight",
+  "version": "1.0.0",
+  "description": "riot.js Hello Word sample with npm and es6",
+  "homepage": "",
+  "scripts": {
+    "compile": "riot --type es6 app dist",
+    "watch": "riot -w --type es6 app dist",
+    "browsersync": "browser-sync start --server --files 'dist/*.js, app/*.html' --startPath app",
+    "serve": "parallelshell \"npm run watch\" \"npm run browsersync\"",
+    "browser": "npm run browsersync"
+  },
+  "author": "Elkin",
+  "license": "Apache2 License (http://www.apache.org/licenses/LICENSE-2.0)",
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-preset-es2015-riot": "^1.1.0",
+    "bootstrap": "^3.3.7",
+    "jQuery": "^1.7.4",
+    "riot": "^3.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers-2": "^6.3.13",
+    "browser-sync": "^2.18.2",
+    "parallelshell": "^2.0.0"
+  }
+}
