@@ -1,1 +1,1 @@
-This is example test for riot js, ajax call and create datatable
+This is example test for riot js, retrieve information using ajax and create datatable
