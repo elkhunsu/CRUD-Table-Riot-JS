@@ -3,3 +3,5 @@
 
 #bower components ignore
 /bower_components
+
+/dist
