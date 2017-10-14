@@ -12,8 +12,8 @@
 
             <thead>
 
-              <!-- <th><input type="checkbox" id="checkall" /></th> -->
-              <th>No</th>
+              <th><input type="checkbox" id="checkall" /></th>
+              <!-- <th>No</th> -->
               <th>Title</th>
               <th>Content</th>
               <th>create at</th>
@@ -24,7 +24,7 @@
             <tbody>
               <!-- <tr each={doc, i in filter(articles)}><td>{ (page * pagesize) + i + 1 }. -->
               <tr each={doc in articles}>
-                <!-- <td><input type="checkbox" class="checkthis" /></td> -->
+                <td><input type="checkbox" class="checkthis" /></td>
                 <!-- <td>{doc.id}</td> -->
                 <td>{doc.title}</td>
                 <td>{doc.content}</td>
@@ -79,6 +79,7 @@
           <h4 class="modal-title custom_align">Edit Your Detail</h4>
         </div>
         <div class="modal-body">
+            <input class="form-control " type="hidden" placeholder="" id="edit-id" value="">
           <div class="form-group">
             <label>Title</label>
             <input class="form-control " type="text" placeholder="" id="edit-title" value="">
@@ -97,7 +98,7 @@
           </div>
         </div>
         <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="{update}"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="{updateArticle}"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -113,7 +114,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
           <h4 class="modal-title custom_align">Delete this entry</h4>
-          <span class="hide" id="id_entry"></span>
+          <input type="hidden" id="id_entry"></input>
         </div>
         <div class="modal-body">
 
@@ -146,17 +147,9 @@
             <label>Content</label>
             <textarea class="form-control " rows="4" type="text" placeholder="" id="create-content" value=""> </textarea>
           </div>
-          <div class="form-group">
-            <label>Create At</label>
-            <input class="form-control " type="text" placeholder="" id="created_at" value="">
-          </div>
-          <div class="form-group">
-            <label>Update At</label>
-            <input class="form-control " type="text" placeholder="" id="updated_at" value="">
-          </div>
         </div>
         <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="{create}"><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
+          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="{createArticle}"><span class="glyphicon glyphicon-ok-sign"></span> Submit</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -236,6 +229,7 @@
       success: function(data) {
         console.log(data);
         if(data.status === true){
+          $('#edit-id').val(data.data.id);
           $('#edit-title').val(data.data.title);
           $('#edit-content').val(data.data.content);
           $('#created_at').val(data.data.created_at);
@@ -245,40 +239,46 @@
     });
   }
 
-  this.update = function(e){
+  this.updateArticle = function(e){
     e.preventDefault();
     var dataPost = {};
-    dataPost.title = $('#edit-title').val(data.data.title);
-    dataPost.content = $('#edit-content').val(data.data.content);
-    dataPost.created_at = $('#created_at').val(data.data.created_at);
-    dataPost.updated_at = $('#updated_at').val(data.data.updated_at);
+    var dataId = $('#edit-id').val();
+    dataPost.title = $('#edit-title').val();
+    dataPost.content = $('#edit-content').val();
+    dataPost.created_at = $('#created_at').val();
+    dataPost.updated_at = $('#updated_at').val();
 
     $.ajax({
-      url: 'https://rest-api.r10.co/articles/' + id,
+      url: 'https://rest-api.r10.co/articles/' + dataId,
       type: 'PUT',
       contentType: "application/json; charset=utf-8",
-      timeout: 60000,
       crossDomain: true,
       traditional: true,
-      data: dataPost,
+      data: JSON.stringify(dataPost),
       success: function(data) {
+        $('#edit').modal('toggle');
+        alert('sukses');
+        console.log(dataPost);
         console.log(data);
+        location.reload();
       },
     });
   }
 
   this.delete = function (e){
     $('#delete').modal('toggle');
-    $('#id_entry').val(this.docs.id);
+    $('#id_entry').val(this.doc.id);
   }
 
   this.deleteArticle = function (){
-    var a = $('#id').val();
+    var a = $('#id_entry').val();
     $.ajax({
-      url: 'https://rest-api.r10.co/articles/'+ this.docs.id,
-      type: 'POST',
+      url: 'https://rest-api.r10.co/articles/'+ a,
+      type: 'DELETE',
       success: function (data) {
-
+        $('#delete').modal('toggle');
+        alert('sukses');
+        location.reload();
       },
       error: function (data) {
 
@@ -286,24 +286,25 @@
     });
   }
 
-  this.create = function (e){
+  this.createArticle = function (e){
     e.preventDefault();
     var dataPost = {};
-    $('#edit-title').val(data.data.title);
-    $('#edit-content').val(data.data.content);
-    $('#created_at').val(data.data.created_at);
-    $('#updated_at').val(data.data.updated_at);
+    dataPost.title = $('#create-title').val();
+    dataPost.content = $('#create-content').val();
+    console.log(dataPost);
     $.ajax({
-      url: 'https://rest-api.r10.co/articles/',
+      url: 'https://rest-api.r10.co/articles',
       type: 'POST',
       contentType: "application/json; charset=utf-8",
       crossDomain: true,
       traditional: true,
-      data: dataPost,
+      data: JSON.stringify(dataPost),
       success: function(data) {
+        $('#create-modal').modal('toggle');
+        alert('sukses');
+        console.log(dataPost);
         console.log(data);
-        if(data.status === true){
-        }
+        location.reload();
       },
     });
   }
