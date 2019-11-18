@@ -660,9 +660,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@^3.3.7:
-  version "3.3.7"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
+bootstrap@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.4.1.tgz#c3a347d419e289ad11f4033e3c4132b87c081d72"
 
 brace-expansion@^1.1.7:
   version "1.1.8"
@@ -2874,6 +2874,10 @@ riot@^3.6.1:
     riot-tmpl "^3.0.8"
     simple-dom "1.2.0"
     simple-html-tokenizer "^0.4.1"
+
+riotgear@^3.5.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/riotgear/-/riotgear-3.6.0.tgz#ca25aadd82610910d1ca2eb7820e5b6db875ba5a"
 
 rollup@^0.49.3:
   version "0.49.3"
