@@ -1982,8 +1982,8 @@ lodash.isfinite@^3.3.2:
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
 
 lodash.mergewith@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz#150cf0a16791f5903b8891eab154609274bdea55"
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
 
 lodash@^3.10.1:
   version "3.10.1"
@@ -2874,6 +2874,10 @@ riot@^3.6.1:
     riot-tmpl "^3.0.8"
     simple-dom "1.2.0"
     simple-html-tokenizer "^0.4.1"
+
+riotgear@^3.5.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/riotgear/-/riotgear-3.6.0.tgz#ca25aadd82610910d1ca2eb7820e5b6db875ba5a"
 
 rollup@^0.49.3:
   version "0.49.3"
